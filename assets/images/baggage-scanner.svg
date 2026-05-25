@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400">
+  <defs>
+    <style>
+      @keyframes scanBeam {
+        0% { transform: translateX(-90px); opacity: 0; }
+        10% { opacity: 0.9; }
+        90% { opacity: 0.9; }
+        100% { transform: translateX(90px); opacity: 0; }
+      }
+      @keyframes conveyorMove {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -30; }
+      }
+      @keyframes xrayPulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.7; }
+      }
+      .scan-beam { animation: scanBeam 2.4s ease-in-out infinite; }
+      .conveyor-motion { animation: conveyorMove 1s linear infinite; }
+      .xray-pulse { animation: xrayPulse 2.4s ease-in-out infinite; }
+    </style>
+    <linearGradient id="bgScanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1117"/>
+      <stop offset="100%" stop-color="#0e1820"/>
+    </linearGradient>
+    <linearGradient id="conveyorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3040"/>
+      <stop offset="100%" stop-color="#152535"/>
+    </linearGradient>
+    <linearGradient id="machineGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e3c"/>
+      <stop offset="100%" stop-color="#111c28"/>
+    </linearGradient>
+    <linearGradient id="xrayGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d2535" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#1a4060" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#0d2535" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="futureZone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3025"/>
+      <stop offset="100%" stop-color="#0f2018"/>
+    </linearGradient>
+    <linearGradient id="experienceZone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2018"/>
+      <stop offset="100%" stop-color="#1a1510"/>
+    </linearGradient>
+    <linearGradient id="pastZone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1820"/>
+      <stop offset="100%" stop-color="#1a1015"/>
+    </linearGradient>
+    <linearGradient id="suitcaseGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a3d4a"/>
+      <stop offset="100%" stop-color="#1e2e38"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3a9090" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#4ab0b0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3a9090" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowScan" x="-50%" y="-20%" width="200%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="itemGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="scannerClip">
+      <rect x="292" y="140" width="180" height="148"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="400" fill="url(#bgScanGrad)"/>
+
+  <!-- Room walls suggestion -->
+  <rect x="0" y="0" width="700" height="50" fill="#0d1a24"/>
+  <rect x="0" y="48" width="700" height="4" fill="#172632"/>
+
+  <!-- Ceiling strip lights -->
+  <rect x="60" y="8" width="80" height="10" rx="1" fill="#1a3d55" opacity="0.7"/>
+  <rect x="200" y="8" width="80" height="10" rx="1" fill="#1a3d55" opacity="0.7"/>
+  <rect x="340" y="8" width="80" height="10" rx="1" fill="#1a3d55" opacity="0.7"/>
+  <rect x="480" y="8" width="80" height="10" rx="1" fill="#1a3d55" opacity="0.7"/>
+  <rect x="600" y="8" width="80" height="10" rx="1" fill="#1a3d55" opacity="0.7"/>
+
+  <!-- Floor -->
+  <rect x="0" y="310" width="700" height="90" fill="#0e1820"/>
+  <line x1="0" y1="310" x2="700" y2="310" stroke="#172632" stroke-width="2"/>
+
+  <!-- Floor grid -->
+  <line x1="0" y1="340" x2="700" y2="340" stroke="#172632" stroke-width="0.8" opacity="0.5"/>
+  <line x1="0" y1="370" x2="700" y2="370" stroke="#172632" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- ==== CONVEYOR BELT ==== -->
+  <!-- Conveyor bed -->
+  <rect x="30" y="250" width="500" height="60" rx="4" fill="url(#conveyorGrad)" stroke="#344550" stroke-width="1.5"/>
+
+  <!-- Conveyor surface with moving belt texture -->
+  <rect x="34" y="254" width="492" height="52" rx="2" fill="#1a2e3c"/>
+  <!-- Belt segments (static, animation via dashoffset) -->
+  <line x1="34" y1="280" x2="526" y2="280" stroke="#344550" stroke-width="1" stroke-dasharray="15,15" class="conveyor-motion"/>
+  <line x1="34" y1="272" x2="526" y2="272" stroke="#2a3d4a" stroke-width="2" opacity="0.4"/>
+  <line x1="34" y1="288" x2="526" y2="288" stroke="#2a3d4a" stroke-width="2" opacity="0.4"/>
+
+  <!-- Conveyor rollers left -->
+  <ellipse cx="42" cy="280" rx="8" ry="18" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <ellipse cx="42" cy="280" rx="4" ry="10" fill="#1e3040"/>
+
+  <!-- Conveyor rollers right -->
+  <ellipse cx="518" cy="280" rx="8" ry="18" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <ellipse cx="518" cy="280" rx="4" ry="10" fill="#1e3040"/>
+
+  <!-- Conveyor support legs -->
+  <rect x="80" y="308" width="12" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <rect x="200" y="308" width="12" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <rect x="380" y="308" width="12" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <rect x="480" y="308" width="12" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+
+  <!-- ==== X-RAY SCANNER MACHINE ==== -->
+  <!-- Machine body top -->
+  <rect x="288" y="60" width="188" height="198" rx="6" fill="url(#machineGrad)" stroke="#344550" stroke-width="2"/>
+
+  <!-- Machine body bottom (encases conveyor) -->
+  <rect x="288" y="230" width="188" height="88" rx="4" fill="url(#machineGrad)" stroke="#344550" stroke-width="2"/>
+
+  <!-- Scanner arch opening -->
+  <rect x="296" y="136" width="172" height="168" rx="4" fill="#080f16" stroke="#1a2e3c" stroke-width="1"/>
+
+  <!-- X-ray interior glow -->
+  <rect x="296" y="136" width="172" height="168" rx="4" fill="url(#xrayGrad)" class="xray-pulse"/>
+
+  <!-- X-ray scan lines (overlay) -->
+  <line x1="296" y1="160" x2="468" y2="160" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+  <line x1="296" y1="185" x2="468" y2="185" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+  <line x1="296" y1="210" x2="468" y2="210" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+  <line x1="296" y1="235" x2="468" y2="235" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+  <line x1="296" y1="260" x2="468" y2="260" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+  <line x1="296" y1="285" x2="468" y2="285" stroke="#0d3040" stroke-width="1" opacity="0.5"/>
+
+  <!-- Scan beam (animated) -->
+  <g clip-path="url(#scannerClip)">
+    <rect x="350" y="140" width="4" height="148" fill="url(#beamGrad)" filter="url(#glowScan)" class="scan-beam"/>
+  </g>
+
+  <!-- Machine arch frame inner -->
+  <rect x="296" y="136" width="172" height="6" rx="2" fill="#1a2e3c"/>
+  <rect x="296" y="298" width="172" height="6" rx="2" fill="#1a2e3c"/>
+  <rect x="296" y="136" width="6" height="168" rx="2" fill="#1a2e3c"/>
+  <rect x="462" y="136" width="6" height="168" rx="2" fill="#1a2e3c"/>
+
+  <!-- Machine top panel - controls -->
+  <rect x="304" y="72" width="156" height="56" rx="3" fill="#111c25" stroke="#344550" stroke-width="1"/>
+
+  <!-- Control screen on machine top -->
+  <rect x="312" y="78" width="100" height="42" rx="2" fill="#0d2535"/>
+  <text x="362" y="94" font-family="monospace" font-size="6.5" fill="#4f8065" text-anchor="middle">SCANNING...</text>
+  <text x="362" y="106" font-family="monospace" font-size="6" fill="#93a2aa" text-anchor="middle">MODE: FULL SCAN</text>
+  <text x="362" y="116" font-family="monospace" font-size="6" fill="#a88042" text-anchor="middle">THREAT: NONE</text>
+
+  <!-- Machine indicator lights (right side of top panel) -->
+  <circle cx="430" cy="88" r="5" fill="#4f8065" opacity="0.9"/>
+  <circle cx="430" cy="102" r="5" fill="#a88042" opacity="0.6"/>
+  <circle cx="446" cy="88" r="5" fill="#4f8065" opacity="0.7"/>
+  <circle cx="446" cy="102" r="5" fill="#344550"/>
+
+  <!-- Machine label -->
+  <text x="382" y="130" font-family="monospace" font-size="7" fill="#93a2aa" text-anchor="middle" letter-spacing="2" opacity="0.8">SCANNER X-25</text>
+
+  <!-- Machine legs -->
+  <rect x="306" y="316" width="16" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+  <rect x="442" y="316" width="16" height="30" rx="1" fill="#172632" stroke="#344550" stroke-width="1"/>
+
+  <!-- ==== SUITCASE ON CONVEYOR ==== -->
+  <!-- Suitcase body (open) -->
+  <g transform="translate(140, 220)">
+    <!-- Suitcase bottom half -->
+    <rect x="0" y="42" width="90" height="40" rx="3" fill="url(#suitcaseGrad)" stroke="#344550" stroke-width="1.5"/>
+    <!-- Suitcase top half (open/lifted) -->
+    <rect x="0" y="0" width="90" height="38" rx="3" fill="#2a3d4a" stroke="#344550" stroke-width="1.5" transform="rotate(-20, 45, 40)"/>
+
+    <!-- Suitcase handle -->
+    <path d="M30,42 L30,32 Q45,26 60,32 L60,42" fill="none" stroke="#344550" stroke-width="2.5"/>
+
+    <!-- Items inside suitcase (bottom half) -->
+    <!-- Book/notebook -->
+    <rect x="6" y="48" width="22" height="28" rx="1" fill="#1a2e3d" stroke="#344550" stroke-width="1"/>
+    <rect x="8" y="50" width="18" height="24" fill="#152535"/>
+    <line x1="10" y1="56" x2="24" y2="56" stroke="#344550" stroke-width="0.8" opacity="0.7"/>
+    <line x1="10" y1="62" x2="24" y2="62" stroke="#344550" stroke-width="0.8" opacity="0.7"/>
+    <line x1="10" y1="68" x2="20" y2="68" stroke="#344550" stroke-width="0.8" opacity="0.7"/>
+
+    <!-- Clock/watch -->
+    <circle cx="44" cy="62" r="11" fill="#0f1d28" stroke="#344550" stroke-width="1.5"/>
+    <circle cx="44" cy="62" r="7" fill="#1a2e3c"/>
+    <line x1="44" y1="57" x2="44" y2="62" stroke="#93a2aa" stroke-width="1" filter="url(#itemGlow)"/>
+    <line x1="44" y1="62" x2="48" y2="65" stroke="#93a2aa" stroke-width="1" filter="url(#itemGlow)"/>
+
+    <!-- Small cylinder (memory/key) -->
+    <rect x="62" y="52" width="20" height="10" rx="3" fill="#344550" stroke="#4a5f6a" stroke-width="1"/>
+    <rect x="64" y="54" width="16" height="6" rx="1" fill="#1e3040"/>
+    <rect x="66" y="56" width="8" height="2" fill="#4f8065" opacity="0.7"/>
+
+    <!-- Rolled paper/map -->
+    <rect x="62" y="66" width="22" height="12" rx="5" fill="#e6dac3" opacity="0.5" stroke="#b8a882" stroke-width="0.8"/>
+    <line x1="66" y1="70" x2="80" y2="70" stroke="#a88042" stroke-width="0.6" opacity="0.6"/>
+    <line x1="66" y1="74" x2="78" y2="74" stroke="#a88042" stroke-width="0.6" opacity="0.6"/>
+  </g>
+
+  <!-- ==== SORTING ZONES (right side) ==== -->
+  <!-- Zone 1: В БУДУЩЕЕ (Future) -->
+  <rect x="548" y="80" width="130" height="80" rx="3" fill="url(#futureZone)" stroke="#4f8065" stroke-width="1.5"/>
+  <rect x="552" y="84" width="122" height="72" rx="2" fill="none" stroke="#4f8065" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="108" font-family="monospace" font-size="7.5" fill="#4f8065" text-anchor="middle" letter-spacing="2" font-weight="bold">В БУДУЩЕЕ</text>
+  <text x="613" y="122" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO THE FUTURE</text>
+  <!-- Arrow indicator -->
+  <path d="M570,138 L656,138" stroke="#4f8065" stroke-width="1.5" marker-end="url(#arrowGreen)" opacity="0.7"/>
+  <polygon points="648,133 660,138 648,143" fill="#4f8065" opacity="0.7"/>
+  <!-- Status light -->
+  <circle cx="562" cy="94" r="4" fill="#4f8065" opacity="0.8"/>
+
+  <!-- Zone 2: В ОПЫТ (Experience) -->
+  <rect x="548" y="178" width="130" height="80" rx="3" fill="url(#experienceZone)" stroke="#a88042" stroke-width="1.5"/>
+  <rect x="552" y="182" width="122" height="72" rx="2" fill="none" stroke="#a88042" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="206" font-family="monospace" font-size="7.5" fill="#a88042" text-anchor="middle" letter-spacing="2" font-weight="bold">В ОПЫТ</text>
+  <text x="613" y="220" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO EXPERIENCE</text>
+  <polygon points="648,231 660,236 648,241" fill="#a88042" opacity="0.7"/>
+  <circle cx="562" cy="192" r="4" fill="#a88042" opacity="0.8"/>
+
+  <!-- Zone 3: В ПРОШЛОЕ (Past) -->
+  <rect x="548" y="276" width="130" height="80" rx="3" fill="url(#pastZone)" stroke="#904d48" stroke-width="1.5"/>
+  <rect x="552" y="280" width="122" height="72" rx="2" fill="none" stroke="#904d48" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="304" font-family="monospace" font-size="7.5" fill="#904d48" text-anchor="middle" letter-spacing="2" font-weight="bold">В ПРОШЛОЕ</text>
+  <text x="613" y="318" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO THE PAST</text>
+  <polygon points="648,329 660,334 648,339" fill="#904d48" opacity="0.7"/>
+  <circle cx="562" cy="290" r="4" fill="#904d48" opacity="0.8"/>
+
+  <!-- Connecting line from conveyor to zones -->
+  <line x1="530" y1="280" x2="548" y2="120" stroke="#344550" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="530" y1="280" x2="548" y2="218" stroke="#344550" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="530" y1="280" x2="548" y2="316" stroke="#344550" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Machine brand label left side -->
+  <text x="30" y="200" font-family="monospace" font-size="8" fill="#93a2aa" opacity="0.5" letter-spacing="2">BAGGAGE INSPECTION</text>
+  <text x="30" y="215" font-family="monospace" font-size="7" fill="#344550" opacity="0.7">ЗОНА ДОСМОТРА БАГАЖА</text>
+
+  <!-- Warning stripes on floor left -->
+  <rect x="0" y="310" width="30" height="8" fill="#a88042" opacity="0.2"/>
+  <line x1="0" y1="310" x2="30" y2="318" stroke="#a88042" stroke-width="2" opacity="0.3"/>
+
+  <!-- Directional arrow on floor -->
+  <polygon points="240,330 260,320 260,326 290,326 290,334 260,334 260,340" fill="#344550" opacity="0.5"/>
+</svg>

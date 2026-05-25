@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Пункт пропуска №25 — таможенная декларация на въезд в следующий год жизни">
+  <title>Пункт пропуска №25</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ PROGRESS BAR ═══════════════════════════ -->
+  <nav id="progress-bar" aria-label="Прогресс прохождения"></nav>
+
+  <!-- ═══════════════════════════════ SCREEN: START ═════════════════════════ -->
+  <main id="screen-start" class="screen" role="main" aria-label="Стартовый экран">
+
+    <div class="start-hero" aria-hidden="true">
+      <img src="assets/images/terminal-entry.svg"
+           alt="Ночной цифровой пограничный терминал между секторами 24 и 25">
+      <div class="start-hero-overlay"></div>
+    </div>
+
+    <div class="start-header">
+      <div class="start-title">Пункт пропуска №25</div>
+      <div class="start-subtitle">Таможенная декларация на въезд в следующий год жизни</div>
+    </div>
+
+    <div class="start-content">
+      <div id="start-lines" aria-live="polite" aria-label="Сообщения терминала"></div>
+
+      <button id="btn-why-delayed" class="btn-primary" style="display:none;" aria-label="Узнать причину задержки">
+        Узнать причину задержки
+      </button>
+
+      <div id="start-reason" class="start-reason-panel" style="display:none;" role="region" aria-label="Основания задержки">
+        <h3>Основания для дополнительной проверки:</h3>
+        <ul>
+          <li>— высокий уровень самостоятельного мышления;</li>
+          <li>— наличие сарказма в объёмах, превышающих нормы ручной клади;</li>
+          <li>— незавершённая инвентаризация будущих планов;</li>
+          <li>— подозрение на намерение прожить следующий год осмысленно.</li>
+        </ul>
+        <p class="start-reason-notice">Для въезда в возраст 25 необходимо пройти таможенный контроль.</p>
+      </div>
+
+      <div class="start-btn-row">
+        <button id="btn-start-control" class="btn-primary" style="display:none;">
+          Начать контроль
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════ SCREEN: IDENTITY ══════════════════════ -->
+  <section id="screen-identity" class="screen" aria-label="Паспортный контроль">
+    <div class="screen-section-header">
+      <div class="screen-title">Паспортный контроль</div>
+      <div class="screen-subtitle">СЕКТОР 24 → 25 / ПРОВЕРКА ЛИЧНОСТИ</div>
+    </div>
+
+    <div class="identity-layout">
+      <aside class="identity-passport" aria-label="Документ пассажира">
+        <img class="passport-img"
+             src="assets/images/passport-file.svg"
+             alt="Электронный паспорт пассажира Никита, сектор 24 → 25">
+        <div class="passport-details">
+          <div><strong>Имя:</strong> Никита</div>
+          <div><strong>Сектор:</strong> 24</div>
+          <div><strong>Запрошен:</strong> 25</div>
+          <div><strong>Признаки:</strong> сарказм, склонность думать, непереносимость бессмысленных формулировок</div>
+        </div>
+      </aside>
+
+      <div class="identity-form">
+        <div class="identity-header">
+          <span class="blink-dot" aria-hidden="true"></span>
+          Контрольные вопросы — подтверждение личности
+        </div>
+        <div id="identity-question-area" role="region" aria-live="polite" aria-label="Вопрос паспортного контроля"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: BAGGAGE ══════════════════════ -->
+  <section id="screen-baggage" class="screen" aria-label="Досмотр жизненного багажа">
+    <div class="screen-section-header">
+      <div class="screen-title">Досмотр жизненного багажа</div>
+      <div class="screen-subtitle">ЗОНА ТАМОЖЕННОГО КОНТРОЛЯ / ИНВЕНТАРИЗАЦИЯ</div>
+    </div>
+
+    <div class="baggage-layout">
+      <div class="baggage-main">
+        <div class="baggage-scanner-wrap" aria-hidden="true">
+          <img class="baggage-scanner-img"
+               src="assets/images/baggage-scanner.svg"
+               alt="Зона досмотра с конвейером и сканером">
+          <div class="scanner-beam" aria-hidden="true"></div>
+        </div>
+
+        <div class="baggage-card">
+          <div class="baggage-item-label">Текущий объект досмотра</div>
+          <div id="baggage-progress" aria-live="polite">Предмет 1 из 12</div>
+          <div id="baggage-item-name" aria-live="polite"></div>
+
+          <div class="baggage-btns" id="baggage-btns" role="group" aria-label="Куда поместить предмет">
+            <button id="btn-future" class="btn-zone future" aria-label="Взять в будущее">
+              Взять в будущее
+            </button>
+            <button id="btn-recycle" class="btn-zone recycle" aria-label="Переработать в опыт">
+              Переработать в опыт
+            </button>
+            <button id="btn-past" class="btn-zone past" aria-label="Оставить в прошлом">
+              Оставить в прошлом
+            </button>
+          </div>
+
+          <div id="baggage-feedback" class="feedback-panel hidden" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <aside id="baggage-zones" class="baggage-zones" aria-label="Рассортированный багаж">
+        <div class="baggage-zones-title">Отсортировано</div>
+        <div class="zones-grid">
+          <div class="zone-col future" id="zone-future">
+            <h4>В будущее</h4>
+            <ul aria-label="Предметы в будущее"></ul>
+          </div>
+          <div class="zone-col recycle" id="zone-recycle">
+            <h4>В опыт</h4>
+            <ul aria-label="Предметы в переработку"></ul>
+          </div>
+          <div class="zone-col past" id="zone-past">
+            <h4>В прошлое</h4>
+            <ul aria-label="Предметы в прошлое"></ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: BAGGAGE REPORT ═══════════════ -->
+  <section id="screen-baggageReport" class="screen" aria-label="Акт досмотра">
+    <div class="screen-section-header">
+      <div class="screen-title">Акт досмотра завершён</div>
+      <div class="screen-subtitle">ОФИЦИАЛЬНЫЙ ДОКУМЕНТ / СЕКТОР 24 → 25</div>
+    </div>
+
+    <div class="baggage-report-layout">
+      <div class="paper-doc" role="document" aria-label="Акт досмотра жизненного багажа">
+        <div class="report-doc-header">
+          <h2>Акт досмотра жизненного багажа</h2>
+          <div class="report-doc-meta">
+            <div>Пассажир: Никита</div>
+            <div>Маршрут: 24 → 25</div>
+          </div>
+        </div>
+
+        <div id="baggage-report-sections" aria-live="polite"></div>
+
+        <div class="report-conclusion">
+          <h4>Заключение инспектора:</h4>
+          <p>Багаж признан пригодным для дальнейшего движения.</p>
+          <p>Пассажир способен сохранить полезное, переработать прожитое в опыт и оставить за границей то, что больше не обязано определять его маршрут.</p>
+          <p>Однако пассажир подозрительно много думает. Назначить дополнительный логический контроль.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button id="btn-to-logic" class="btn-primary">Пройти красный коридор</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: LOGIC ════════════════════════ -->
+  <section id="screen-logic" class="screen" aria-label="Красный коридор">
+    <div class="screen-section-header">
+      <div class="screen-title">Красный коридор</div>
+      <div class="screen-subtitle">КОНТРОЛЬ ОБЯЗАТЕЛЕН / ЧЕТЫРЕ ПРОВЕРКИ</div>
+    </div>
+
+    <div class="logic-layout">
+      <img class="logic-corridor-img"
+           src="assets/images/red-corridor.svg"
+           alt="Красный коридор контрольного прохода с местами для четырёх печатей"
+           aria-hidden="false">
+
+      <div id="stamp-slots" class="stamp-slots" role="list" aria-label="Статус печатей контроля"></div>
+
+      <div class="logic-trial-card">
+        <div class="logic-trial-num" aria-live="polite" id="logic-trial-num">Испытание 1 из 4</div>
+        <div class="logic-trial-name" id="logic-trial-title"></div>
+        <div class="logic-situation" id="logic-trial-situation"></div>
+        <div id="logic-trial-area" role="region" aria-live="polite" aria-label="Задание испытания"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: LOGIC REPORT ═════════════════ -->
+  <section id="screen-logicReport" class="screen" aria-label="Итог логического контроля">
+    <div class="screen-section-header">
+      <div class="screen-title">Логический контроль пройден</div>
+      <div class="screen-subtitle">ЧЕТЫРЕ ПРОВЕРКИ ЗАВЕРШЕНЫ</div>
+    </div>
+
+    <div class="logic-report-layout">
+      <div class="paper-doc" role="document">
+        <div class="report-doc-header">
+          <h2>Логический контроль пройден</h2>
+        </div>
+
+        <div id="logic-report-stamps" class="logic-report-stamps" aria-label="Полученные печати"></div>
+
+        <div class="logic-established">
+          <h4>Установлено:</h4>
+          <ul>
+            <li>— Никита способен быть осторожным, не превращая осторожность в страх;</li>
+            <li>— заинтересован в расширении горизонта, а не только в повторении знакомого;</li>
+            <li>— допускает наличие прошлого, но не намерен жить под его управлением;</li>
+            <li>— понимает, что размышления должны однажды превращаться в выбор и действие.</li>
+          </ul>
+        </div>
+
+        <p style="font-size:14px; color: var(--paper-text); margin-top: 16px;">
+          Разрешён переход к заполнению декларации будущего.
+        </p>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button id="btn-to-declaration" class="btn-primary">Заполнить декларацию</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: DECLARATION ══════════════════ -->
+  <section id="screen-declaration" class="screen" aria-label="Декларация будущего">
+    <div class="screen-section-header">
+      <div class="screen-title">Декларация будущего</div>
+      <div class="screen-subtitle">ДЕКЛАРАЦИЯ НА ВВОЗ В ВОЗРАСТ 25</div>
+    </div>
+
+    <div class="declaration-layout">
+      <div class="declaration-header">
+        <h2>Декларация на ввоз в возраст 25</h2>
+        <p>Укажите положения, которые должны быть внесены в разрешение на следующий год жизни.</p>
+      </div>
+
+      <div id="declaration-grid" class="decl-grid" role="group" aria-label="Позиции декларации"></div>
+
+      <div id="declaration-limit-msg" class="declaration-limit-msg" style="display:none;" role="alert">
+        <div class="limit-line-1">ОБНАРУЖЕНО ИСКУССТВЕННОЕ ОГРАНИЧЕНИЕ: РАЗРЕШЕНО ВЫБРАТЬ ТОЛЬКО ШЕСТЬ.</div>
+        <div class="limit-line-2">ОГРАНИЧЕНИЕ ПРИЗНАНО БЕССМЫСЛЕННЫМ.</div>
+        <div class="limit-line-3">В ХОРОШИЙ ГОД ЖИЗНИ ДОПУСКАЕТСЯ ВВОЗ ВСЕГО НЕОБХОДИМОГО.</div>
+      </div>
+
+      <div id="declaration-done-msg" class="declaration-done-msg" style="display:none;" role="status">
+        <p><strong>Декларация принята.</strong></p>
+        <p>Запрещённых иллюзий не обнаружено.</p>
+        <p>Нереалистичных обещаний полного отсутствия трудностей не заявлено.</p>
+        <p>Обнаружено разумное намерение: жить внимательнее, думать шире, меняться честно и действовать вовремя.</p>
+      </div>
+
+      <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+        <button id="btn-confirm-declaration" class="btn-primary" style="display:none;">
+          Согласовать полный список
+        </button>
+        <button id="btn-declaration-next" class="btn-primary" style="display:none;">
+          Получить разрешение на въезд
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: FINAL PERMIT ══════════════════ -->
+  <section id="screen-finalPermit" class="screen" aria-label="Финальный документ — разрешение на въезд">
+    <div class="screen-section-header">
+      <div class="screen-title">Разрешение на въезд</div>
+      <div class="screen-subtitle">ОФИЦИАЛЬНЫЙ ДОКУМЕНТ / РЕШ-25-НИКИТА-001</div>
+    </div>
+
+    <div class="permit-layout">
+      <div class="paper-doc permit-doc" role="document" aria-label="Разрешение на въезд в возраст 25">
+        <img class="permit-doc-img"
+             src="assets/images/final-permit.svg"
+             alt=""
+             aria-hidden="true">
+
+        <div class="permit-header">
+          <div class="permit-authority">Погранично-таможенная служба жизненных периодов</div>
+          <div class="permit-title">Разрешение на въезд в возраст 25</div>
+        </div>
+
+        <div class="permit-body">
+          <p>Настоящим подтверждается, что гражданин <strong>Никита</strong> успешно прошёл паспортный контроль, досмотр жизненного багажа и проверку способности принимать разумные решения в условиях ограниченной определённости и повышенного количества человеческого абсурда.</p>
+
+          <p>На территорию возраста 25 ему разрешается ввезти:</p>
+        </div>
+
+        <ul class="permit-list" aria-label="Разрешено к ввозу">
+          <li>ясную голову и здоровую осторожность;</li>
+          <li>интерес к миру, знаниям, наукам и новым областям жизни;</li>
+          <li>право не знать всех ответов сразу, но продолжать их искать;</li>
+          <li>смелость честно спрашивать себя, кто он и чего действительно хочет;</li>
+          <li>способность смотреть в будущее и понимать последствия своих решений;</li>
+          <li>опыт прошлого без необходимости снова и снова жить внутри старых ошибок;</li>
+          <li>умение меняться, когда прежние выводы больше не ведут туда, куда хочется прийти;</li>
+          <li>готовность действовать тогда, когда наступит его время.</li>
+        </ul>
+
+        <div class="permit-section-title">Без права дальнейшего ввоза изъяты:</div>
+        <ul class="permit-list" aria-label="Изъято без права ввоза">
+          <li>страх, выдающий себя за осторожность;</li>
+          <li>чужие сценарии жизни;</li>
+          <li>привычка судить себя по уже прожитым ошибкам;</li>
+          <li>ожидание идеальной ясности перед каждым шагом;</li>
+          <li>убеждение, что прошлое имеет право определять будущее.</li>
+        </ul>
+
+        <div class="permit-special-note">
+          <h4>Особое заключение инспектора:</h4>
+          <p>Никита, в 25 не обязательно уже окончательно знать, кем быть и куда прийти. Но важно не переставать смотреть, думать, интересоваться, сравнивать, узнавать себя и мир вокруг.</p>
+          <p>Желаю тебе быть осторожным там, где это сохраняет тебя, и смелым там, где осторожность уже сделала свою работу. Интересоваться разными вещами, знаниями и науками — не поверхностно, а с настоящим любопытством. Не жить оглядкой на ошибки, а брать из них только то, что делает тебя мудрее и точнее.</p>
+          <p>И когда ты поймёшь, что для тебя действительно важно, — не откладывать жизнь в ожидании идеального момента, а действовать.</p>
+          <p>Пусть твой следующий год будет не просто хорошим, а твоим.</p>
+          <p><strong>С днём рождения. Въезд в 25 разрешён.</strong></p>
+        </div>
+
+        <div class="final-stamp-wrap">
+          <img id="final-stamp"
+               src="assets/images/stamp-entry-approved.svg"
+               alt="Большая печать: ВЪЕЗД РАЗРЕШЁН"
+               width="160" height="160">
+        </div>
+
+        <div class="permit-footer">
+          <div>Срок действия документа: до следующего пограничного контроля.</div>
+          <div>Основание выдачи: день рождения и убедительные результаты досмотра.</div>
+          <div style="margin-top: 6px; opacity: 0.4; font-size: 9px; letter-spacing: 0.2em;">РЕШ-25-НИКИТА-001 / СЕКТОР-25 / ДЕЙСТВИТЕЛЬНО</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px; padding-bottom: 40px;">
+        <button id="btn-cross-border" class="btn-primary">Пересечь границу</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ SCREEN: CROSSED BORDER ════════════════ -->
+  <section id="screen-crossedBorder" class="screen" aria-label="Вы пересекли границу">
+
+    <div class="gate-container" role="img" aria-label="Пограничные ворота открываются">
+      <img src="assets/images/final-gate.svg"
+           alt="Пограничные ворота между секторами 24 и 25"
+           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+      <div class="gate-panels" aria-hidden="true">
+        <div class="gate-panel left" id="gate-panel-left">
+          <div class="gate-light-bar"></div>
+          <div class="gate-panel-text">СЕКТОР 24</div>
+        </div>
+        <div class="gate-panel right" id="gate-panel-right">
+          <div class="gate-light-bar"></div>
+          <div class="gate-panel-text">СЕКТОР 25</div>
+        </div>
+      </div>
+      <div class="gate-glow" id="gate-glow" aria-hidden="true"></div>
+      <div class="sector-25-label" aria-hidden="true">СЕКТОР 25</div>
+    </div>
+
+    <div class="border-final-content">
+      <div id="border-final-text">
+        <div class="final-welcome">Добро пожаловать в 25.</div>
+        <div class="final-tagline">Маршрут дальше определяет пассажир.</div>
+        <div class="final-footnote">
+          Контроль завершён. Багаж одобрен. Прошлое не имеет полномочий задерживать дальнейшее движение.
+        </div>
+        <button id="btn-restart" class="btn-secondary">Пройти контроль заново</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

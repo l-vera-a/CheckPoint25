@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="recycleStampRough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" seed="5"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="recycleStampRough2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="noise" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#a88042" stroke-width="7" opacity="0.80" filter="url(#recycleStampRough)"/>
+
+  <!-- Inner ring -->
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#a88042" stroke-width="2" opacity="0.70" filter="url(#recycleStampRough)"/>
+
+  <!-- Outer ring text: СЕКТОР 25 -->
+  <defs>
+    <path id="recycleOuterRing" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+  </defs>
+  <text font-family="monospace" font-size="11.5" fill="#a88042" opacity="0.82" letter-spacing="8" filter="url(#recycleStampRough)">
+    <textPath href="#recycleOuterRing" startOffset="8%">СЕКТОР 25 ◆ SECTOR 25 ◆ СЕКТОР 25 ◆</textPath>
+  </text>
+
+  <!-- Center symbol: circular arrows (recycling concept) -->
+  <g transform="translate(100, 88)" filter="url(#recycleStampRough)" opacity="0.7">
+    <!-- Arrow 1 (top) -->
+    <path d="M0,-30 A30,30 0 0,1 26,-15" fill="none" stroke="#a88042" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="26,-15 18,-22 32,-8" fill="#a88042"/>
+
+    <!-- Arrow 2 (bottom-right) -->
+    <path d="M26,-15 A30,30 0 0,1 0,30" fill="none" stroke="#a88042" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="0,30 10,20 -8,20" fill="#a88042"/>
+
+    <!-- Arrow 3 (bottom-left) -->
+    <path d="M0,30 A30,30 0 0,1 -26,-15" fill="none" stroke="#a88042" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="-26,-15 -18,-8 -32,-22" fill="#a88042"/>
+
+    <!-- Center small circle -->
+    <circle cx="0" cy="0" r="8" fill="#a88042" opacity="0.5"/>
+    <circle cx="0" cy="0" r="4" fill="none" stroke="#a88042" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Main text line 1: ПЕРЕРАБОТАНО -->
+  <text x="100" y="144" font-family="serif" font-size="13" fill="#a88042" text-anchor="middle"
+        font-weight="bold" letter-spacing="1" opacity="0.85" filter="url(#recycleStampRough2)">ПЕРЕРАБОТАНО</text>
+
+  <!-- Main text line 2: В ОПЫТ -->
+  <text x="100" y="160" font-family="serif" font-size="13" fill="#a88042" text-anchor="middle"
+        font-weight="bold" letter-spacing="3" opacity="0.85" filter="url(#recycleStampRough2)">В ОПЫТ</text>
+
+  <!-- Decorative lines around text -->
+  <line x1="30" y1="165" x2="170" y2="165" stroke="#a88042" stroke-width="1.5" opacity="0.55" filter="url(#recycleStampRough)"/>
+  <line x1="36" y1="132" x2="164" y2="132" stroke="#a88042" stroke-width="1" opacity="0.4" filter="url(#recycleStampRough)"/>
+
+  <!-- Sub text -->
+  <text x="100" y="176" font-family="monospace" font-size="6.5" fill="#a88042" text-anchor="middle"
+        letter-spacing="2" opacity="0.6">RECYCLED TO EXPERIENCE</text>
+
+  <!-- Axis marks -->
+  <line x1="100" y1="10" x2="100" y2="18" stroke="#a88042" stroke-width="2.5" opacity="0.5" filter="url(#recycleStampRough)"/>
+  <line x1="100" y1="182" x2="100" y2="190" stroke="#a88042" stroke-width="2.5" opacity="0.5" filter="url(#recycleStampRough)"/>
+  <line x1="10" y1="100" x2="18" y2="100" stroke="#a88042" stroke-width="2.5" opacity="0.5" filter="url(#recycleStampRough)"/>
+  <line x1="182" y1="100" x2="190" y2="100" stroke="#a88042" stroke-width="2.5" opacity="0.5" filter="url(#recycleStampRough)"/>
+</svg>

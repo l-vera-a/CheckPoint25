@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" width="700" height="450">
+  <defs>
+    <linearGradient id="corridorBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0a0a"/>
+      <stop offset="60%" stop-color="#110c0c"/>
+      <stop offset="100%" stop-color="#0b0909"/>
+    </linearGradient>
+    <linearGradient id="corridorFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1010"/>
+      <stop offset="100%" stop-color="#0e0a0a"/>
+    </linearGradient>
+    <linearGradient id="wallLeft" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1a0f0f"/>
+      <stop offset="100%" stop-color="#0d0808"/>
+    </linearGradient>
+    <linearGradient id="wallRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a0f0f"/>
+      <stop offset="100%" stop-color="#0d0808"/>
+    </linearGradient>
+    <radialGradient id="vanishPoint" cx="50%" cy="38%" r="30%">
+      <stop offset="0%" stop-color="#3d1010" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0b0909" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redLightLeft" cx="100%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#6a1515" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0b0909" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="redLightRight" cx="0%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#6a1515" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0b0909" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1010"/>
+      <stop offset="100%" stop-color="#140c0c"/>
+    </linearGradient>
+    <filter id="redGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="subtleGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="450" fill="url(#corridorBg)"/>
+
+  <!-- Vanishing point glow -->
+  <ellipse cx="350" cy="170" rx="200" ry="120" fill="url(#vanishPoint)"/>
+
+  <!-- Red ambient light on walls -->
+  <rect x="0" y="0" width="200" height="450" fill="url(#redLightLeft)" opacity="0.8"/>
+  <rect x="500" y="0" width="200" height="450" fill="url(#redLightRight)" opacity="0.8"/>
+
+  <!-- Ceiling -->
+  <rect x="0" y="0" width="700" height="55" fill="#0d0a0a"/>
+  <line x1="0" y1="54" x2="700" y2="54" stroke="#2a1515" stroke-width="2"/>
+
+  <!-- Floor -->
+  <polygon points="0,450 700,450 560,260 140,260" fill="url(#corridorFloor)"/>
+  <!-- Floor grid lines perspective -->
+  <line x1="350" y1="450" x2="350" y2="260" stroke="#2a1515" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="390" x2="700" y2="390" stroke="#2a1515" stroke-width="0.8" opacity="0.4"/>
+  <line x1="60" y1="340" x2="640" y2="340" stroke="#2a1515" stroke-width="0.8" opacity="0.4"/>
+  <line x1="130" y1="300" x2="570" y2="300" stroke="#2a1515" stroke-width="0.8" opacity="0.3"/>
+  <line x1="70" y1="450" x2="250" y2="260" stroke="#2a1515" stroke-width="0.8" opacity="0.3"/>
+  <line x1="630" y1="450" x2="450" y2="260" stroke="#2a1515" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Left wall surface -->
+  <polygon points="0,0 140,260 140,450 0,450" fill="url(#wallLeft)"/>
+  <polygon points="0,54 140,260 0,260" fill="#100c0c" opacity="0.5"/>
+
+  <!-- Right wall surface -->
+  <polygon points="700,0 560,260 560,450 700,450" fill="url(#wallRight)"/>
+  <polygon points="700,54 560,260 700,260" fill="#100c0c" opacity="0.5"/>
+
+  <!-- Left wall red light strips -->
+  <line x1="8" y1="60" x2="138" y2="260" stroke="#904d48" stroke-width="3" opacity="0.6"/>
+  <line x1="8" y1="64" x2="138" y2="264" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+  <line x1="30" y1="60" x2="138" y2="220" stroke="#904d48" stroke-width="2" opacity="0.4"/>
+  <line x1="60" y1="60" x2="138" y2="180" stroke="#904d48" stroke-width="1.5" opacity="0.3"/>
+  <line x1="100" y1="60" x2="138" y2="120" stroke="#904d48" stroke-width="1" opacity="0.25"/>
+
+  <!-- Right wall red light strips -->
+  <line x1="692" y1="60" x2="562" y2="260" stroke="#904d48" stroke-width="3" opacity="0.6"/>
+  <line x1="692" y1="64" x2="562" y2="264" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+  <line x1="670" y1="60" x2="562" y2="220" stroke="#904d48" stroke-width="2" opacity="0.4"/>
+  <line x1="640" y1="60" x2="562" y2="180" stroke="#904d48" stroke-width="1.5" opacity="0.3"/>
+  <line x1="600" y1="60" x2="562" y2="120" stroke="#904d48" stroke-width="1" opacity="0.25"/>
+
+  <!-- LEFT WALL PANELS -->
+  <!-- Panel 1 (leftmost) -->
+  <rect x="10" y="68" width="110" height="100" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1.5"/>
+  <rect x="15" y="73" width="100" height="90" rx="1" fill="#120c0c"/>
+
+  <!-- Stamp position 1: ОСМОТРИТЕЛЬНОСТЬ -->
+  <circle cx="65" cy="100" r="32" fill="none" stroke="#3d1818" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="65" cy="100" r="26" fill="none" stroke="#2a1010" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <text x="65" y="96" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">ОСМОТ-</text>
+  <text x="65" y="107" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">РИТЕЛЬ-</text>
+  <text x="65" y="118" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">НОСТЬ</text>
+  <text x="65" y="158" font-family="monospace" font-size="5" fill="#904d48" text-anchor="middle" opacity="0.7">I</text>
+
+  <!-- Panel 2 (second from left) -->
+  <rect x="10" y="186" width="110" height="90" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1.5"/>
+  <rect x="15" y="191" width="100" height="80" rx="1" fill="#120c0c"/>
+
+  <!-- Stamp position 2: ЛЮБОПЫТСТВО -->
+  <circle cx="65" cy="225" r="28" fill="none" stroke="#3d1818" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="65" cy="225" r="22" fill="none" stroke="#2a1010" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <text x="65" y="221" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">ЛЮБО-</text>
+  <text x="65" y="232" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">ПЫТСТВО</text>
+  <text x="65" y="265" font-family="monospace" font-size="5" fill="#904d48" text-anchor="middle" opacity="0.7">II</text>
+
+  <!-- RIGHT WALL PANELS -->
+  <!-- Panel 3: ОПЫТ -->
+  <rect x="580" y="68" width="110" height="100" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1.5"/>
+  <rect x="585" y="73" width="100" height="90" rx="1" fill="#120c0c"/>
+
+  <circle cx="635" cy="100" r="32" fill="none" stroke="#3d1818" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="635" cy="100" r="26" fill="none" stroke="#2a1010" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <text x="635" y="103" font-family="monospace" font-size="6.5" fill="#6a3030" text-anchor="middle" letter-spacing="1">ОПЫТ</text>
+  <text x="635" y="158" font-family="monospace" font-size="5" fill="#904d48" text-anchor="middle" opacity="0.7">III</text>
+
+  <!-- Panel 4: ДЕЙСТВИЕ -->
+  <rect x="580" y="186" width="110" height="90" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1.5"/>
+  <rect x="585" y="191" width="100" height="80" rx="1" fill="#120c0c"/>
+
+  <circle cx="635" cy="225" r="28" fill="none" stroke="#3d1818" stroke-width="2" stroke-dasharray="6,4"/>
+  <circle cx="635" cy="225" r="22" fill="none" stroke="#2a1010" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <text x="635" y="221" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">ДЕЙСТ-</text>
+  <text x="635" y="232" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle" letter-spacing="0.5">ВИЕ</text>
+  <text x="635" y="265" font-family="monospace" font-size="5" fill="#904d48" text-anchor="middle" opacity="0.7">IV</text>
+
+  <!-- Corridor vanishing wall end -->
+  <rect x="140" y="55" width="420" height="210" fill="#0d0808"/>
+  <rect x="140" y="55" width="420" height="210" fill="none" stroke="#2a1515" stroke-width="1.5"/>
+
+  <!-- Inner corridor reduction frames (depth) -->
+  <rect x="175" y="80" width="350" height="180" fill="#0a0707" stroke="#241212" stroke-width="1"/>
+  <rect x="210" y="105" width="280" height="150" fill="#080505" stroke="#1e0f0f" stroke-width="1"/>
+  <rect x="245" y="130" width="210" height="120" fill="#060404" stroke="#180d0d" stroke-width="1" opacity="0.9"/>
+  <rect x="280" y="155" width="140" height="90" fill="#040303" stroke="#120909" stroke-width="1" opacity="0.8"/>
+
+  <!-- Red accent lines on corridor end wall -->
+  <line x1="140" y1="55" x2="280" y2="155" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+  <line x1="560" y1="55" x2="420" y2="155" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+  <line x1="140" y1="265" x2="280" y2="245" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+  <line x1="560" y1="265" x2="420" y2="245" stroke="#6a1515" stroke-width="1" opacity="0.4"/>
+
+  <!-- КОНТРОЛЬ ОБЯЗАТЕЛЕН sign -->
+  <rect x="200" y="60" width="300" height="40" rx="2" fill="#1a0c0c" stroke="#904d48" stroke-width="1.5"/>
+  <rect x="204" y="64" width="292" height="32" rx="1" fill="none" stroke="#6a1515" stroke-width="0.8" stroke-dasharray="4,2" opacity="0.5"/>
+  <text x="350" y="84" font-family="serif" font-size="13" fill="#904d48" text-anchor="middle" font-weight="bold" letter-spacing="3" filter="url(#subtleGlow)">КОНТРОЛЬ ОБЯЗАТЕЛЕН</text>
+
+  <!-- Corridor end door suggestion -->
+  <rect x="290" y="162" width="120" height="82" rx="1" fill="#040303"/>
+  <rect x="295" y="165" width="110" height="76" rx="1" fill="#060404"/>
+  <rect x="300" y="168" width="100" height="70" rx="1" fill="#030202"/>
+  <!-- Door frame red accent -->
+  <rect x="290" y="162" width="120" height="82" rx="1" fill="none" stroke="#3d1818" stroke-width="1.5"/>
+  <!-- Door handle -->
+  <rect x="342" y="200" width="16" height="5" rx="2" fill="#3d1818"/>
+
+  <!-- Ceiling accent strips -->
+  <rect x="140" y="55" width="420" height="5" rx="1" fill="#3d1818" opacity="0.7"/>
+
+  <!-- Red indicator lights along ceiling -->
+  <circle cx="160" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.8"/>
+  <circle cx="220" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.7"/>
+  <circle cx="280" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.6"/>
+  <circle cx="350" cy="52" r="5" fill="#904d48" filter="url(#redGlow)" opacity="0.9"/>
+  <circle cx="420" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.6"/>
+  <circle cx="480" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.7"/>
+  <circle cx="540" cy="52" r="4" fill="#904d48" filter="url(#redGlow)" opacity="0.8"/>
+
+  <!-- Floor accent stripes (warning) -->
+  <rect x="0" y="440" width="700" height="10" fill="#1a0c0c"/>
+  <rect x="0" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="60" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="120" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="180" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="240" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="300" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="360" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="420" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="480" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="540" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="600" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+  <rect x="660" y="440" width="30" height="10" fill="#904d48" opacity="0.3"/>
+
+  <!-- Floor label -->
+  <text x="350" y="430" font-family="monospace" font-size="7" fill="#6a3030" text-anchor="middle" letter-spacing="3" opacity="0.6">КРАСНЫЙ КОРИДОР / RED CORRIDOR</text>
+
+  <!-- Wall control panels (small) -->
+  <rect x="10" y="300" width="110" height="50" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1"/>
+  <rect x="15" y="305" width="100" height="40" rx="1" fill="#120c0c"/>
+  <line x1="20" y1="318" x2="110" y2="318" stroke="#3d1818" stroke-width="1"/>
+  <line x1="20" y1="330" x2="95" y2="330" stroke="#3d1818" stroke-width="1" opacity="0.6"/>
+  <text x="65" y="312" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle">PANEL A // ACTIVE</text>
+
+  <rect x="580" y="300" width="110" height="50" rx="2" fill="url(#panelGrad)" stroke="#3d1818" stroke-width="1"/>
+  <rect x="585" y="305" width="100" height="40" rx="1" fill="#120c0c"/>
+  <line x1="590" y1="318" x2="680" y2="318" stroke="#3d1818" stroke-width="1"/>
+  <line x1="590" y1="330" x2="665" y2="330" stroke="#3d1818" stroke-width="1" opacity="0.6"/>
+  <text x="635" y="312" font-family="monospace" font-size="5.5" fill="#6a3030" text-anchor="middle">PANEL B // ACTIVE</text>
+</svg>
