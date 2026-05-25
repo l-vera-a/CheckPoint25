@@ -92,7 +92,7 @@
 
   <text x="420" y="180" font-family="monospace" font-size="7" fill="#8a7c60" letter-spacing="1">2. ДАТА</text>
   <line x1="420" y1="196" x2="564" y2="196" stroke="#8a7c60" stroke-width="0.8"/>
-  <text x="420" y="192" font-family="monospace" font-size="9" fill="#282621">25.05.2026</text>
+  <text x="420" y="192" font-family="monospace" font-size="9" fill="#282621">27.05.2026</text>
 
   <text x="40" y="216" font-family="monospace" font-size="7" fill="#8a7c60" letter-spacing="1">3. СЕКТОР ИСХОДА / SECTOR OF ORIGIN</text>
   <line x1="40" y1="232" x2="564" y2="232" stroke="#8a7c60" stroke-width="0.8"/>
