@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="confStampRough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="confStampRough2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="3" result="noise" seed="12"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Slightly irregular outer ring (authentic stamp feel) -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#904d48" stroke-width="7" opacity="0.80" filter="url(#confStampRough)"/>
+
+  <!-- Inner ring - slightly offset for authenticity -->
+  <circle cx="101" cy="100" r="77" fill="none" stroke="#904d48" stroke-width="2.5" opacity="0.72" filter="url(#confStampRough)"/>
+
+  <!-- Outer ring text: ТАМОЖЕННАЯ СЛУЖБА -->
+  <defs>
+    <path id="confOuterRing" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+    <path id="confBottomRing" d="M100,100 m-74,0 a74,74 0 0,0 148,0"/>
+  </defs>
+  <text font-family="monospace" font-size="10.5" fill="#904d48" opacity="0.82" letter-spacing="6" filter="url(#confStampRough)">
+    <textPath href="#confOuterRing" startOffset="5%">ТАМОЖЕННАЯ СЛУЖБА ✦ CUSTOMS SERVICE ✦</textPath>
+  </text>
+
+  <!-- Center decorative X mark (customs symbol) -->
+  <g filter="url(#confStampRough)" opacity="0.65">
+    <line x1="68" y1="68" x2="132" y2="132" stroke="#904d48" stroke-width="8" stroke-linecap="round"/>
+    <line x1="132" y1="68" x2="68" y2="132" stroke="#904d48" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Center square frame -->
+  <rect x="64" y="64" width="72" height="72" rx="3" fill="none" stroke="#904d48" stroke-width="2" opacity="0.45" filter="url(#confStampRough)"/>
+
+  <!-- Main text: КОНФИСКОВАНО -->
+  <text x="100" y="152" font-family="serif" font-size="13.5" fill="#904d48" text-anchor="middle"
+        font-weight="bold" letter-spacing="1.5" opacity="0.85" filter="url(#confStampRough2)">КОНФИСКОВАНО</text>
+
+  <!-- Line above/below main text -->
+  <line x1="28" y1="157" x2="172" y2="157" stroke="#904d48" stroke-width="1.5" opacity="0.55" filter="url(#confStampRough)"/>
+  <line x1="34" y1="170" x2="166" y2="170" stroke="#904d48" stroke-width="1" stroke-dasharray="3,3" opacity="0.45" filter="url(#confStampRough)"/>
+
+  <!-- Sub text -->
+  <text x="100" y="166" font-family="monospace" font-size="7" fill="#904d48" text-anchor="middle"
+        letter-spacing="2" opacity="0.6">CONFISCATED</text>
+
+  <!-- Axis tick marks -->
+  <line x1="100" y1="10" x2="100" y2="19" stroke="#904d48" stroke-width="2.5" opacity="0.55" filter="url(#confStampRough)"/>
+  <line x1="100" y1="181" x2="100" y2="190" stroke="#904d48" stroke-width="2.5" opacity="0.55" filter="url(#confStampRough)"/>
+  <line x1="10" y1="100" x2="19" y2="100" stroke="#904d48" stroke-width="2.5" opacity="0.55" filter="url(#confStampRough)"/>
+  <line x1="181" y1="100" x2="190" y2="100" stroke="#904d48" stroke-width="2.5" opacity="0.55" filter="url(#confStampRough)"/>
+
+  <!-- Diagonal small ticks -->
+  <line x1="27" y1="27" x2="34" y2="34" stroke="#904d48" stroke-width="1.5" opacity="0.4"/>
+  <line x1="166" y1="27" x2="173" y2="34" stroke="#904d48" stroke-width="1.5" opacity="0.4"/>
+  <line x1="27" y1="173" x2="34" y2="166" stroke="#904d48" stroke-width="1.5" opacity="0.4"/>
+  <line x1="166" y1="173" x2="173" y2="166" stroke="#904d48" stroke-width="1.5" opacity="0.4"/>
+</svg>

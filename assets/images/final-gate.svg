@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500">
+  <defs>
+    <style>
+      @keyframes gateOpen {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(0); }
+        80% { transform: translateX(-160px); }
+        100% { transform: translateX(-160px); }
+      }
+      @keyframes gateOpenRight {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(0); }
+        80% { transform: translateX(160px); }
+        100% { transform: translateX(160px); }
+      }
+      @keyframes goldenPulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1.0; }
+      }
+      @keyframes blinkGate {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.2; }
+      }
+      /* Gate animation classes - activated by adding class 'open' to SVG */
+      .gate-open-left { animation: gateOpen 2.5s ease-in-out forwards; }
+      .gate-open-right { animation: gateOpenRight 2.5s ease-in-out forwards; }
+      .golden-pulse { animation: goldenPulse 3s ease-in-out infinite; }
+      .blink-gate { animation: blinkGate 1.4s ease-in-out infinite; }
+      .blink-gate-slow { animation: blinkGate 2.6s ease-in-out infinite 0.5s; }
+    </style>
+    <linearGradient id="gateSceneBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060c12"/>
+      <stop offset="100%" stop-color="#0b1117"/>
+    </linearGradient>
+    <linearGradient id="gatePanelLeft" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1e3040"/>
+      <stop offset="100%" stop-color="#111c25"/>
+    </linearGradient>
+    <linearGradient id="gatePanelRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e3040"/>
+      <stop offset="100%" stop-color="#111c25"/>
+    </linearGradient>
+    <linearGradient id="gateFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111c25"/>
+      <stop offset="100%" stop-color="#0b1117"/>
+    </linearGradient>
+    <radialGradient id="goldenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c7a568" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#a88042" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c7a568" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldenBackground" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#3d2a08"/>
+      <stop offset="60%" stop-color="#1a1208"/>
+      <stop offset="100%" stop-color="#0c0a06"/>
+    </radialGradient>
+    <radialGradient id="coldBlueAmbient" cx="30%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#1a3d55" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0b1117" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gateEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a4055"/>
+      <stop offset="50%" stop-color="#172632"/>
+      <stop offset="100%" stop-color="#111c25"/>
+    </linearGradient>
+    <linearGradient id="sector25Sign" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d2a08"/>
+      <stop offset="100%" stop-color="#2a1e08"/>
+    </linearGradient>
+    <filter id="goldenBloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="gatePanelGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softLight">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <clipPath id="gateClip">
+      <rect x="220" y="60" width="260" height="380"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="500" fill="url(#gateSceneBg)"/>
+
+  <!-- Cold blue ambient on current side -->
+  <ellipse cx="180" cy="200" rx="250" ry="200" fill="url(#coldBlueAmbient)"/>
+  <ellipse cx="520" cy="200" rx="250" ry="200" fill="url(#coldBlueAmbient)"/>
+
+  <!-- Golden world beyond the gate -->
+  <rect x="220" y="60" width="260" height="380" fill="url(#goldenBackground)"/>
+
+  <!-- Golden light bloom through gap -->
+  <ellipse cx="350" cy="250" rx="120" ry="180" fill="url(#goldenGlow)" filter="url(#goldenBloom)" class="golden-pulse"/>
+  <ellipse cx="350" cy="250" rx="70" ry="120" fill="#c7a568" opacity="0.15" class="golden-pulse"/>
+
+  <!-- SECTOR 25 sign in golden light area -->
+  <rect x="270" y="130" width="160" height="60" rx="3" fill="url(#sector25Sign)" stroke="#c7a568" stroke-width="1.5" opacity="0.85"/>
+  <rect x="275" y="135" width="150" height="50" rx="2" fill="none" stroke="#c7a568" stroke-width="0.7" stroke-dasharray="4,2" opacity="0.5"/>
+  <text x="350" y="156" font-family="monospace" font-size="8" fill="#c7a568" text-anchor="middle" letter-spacing="3" opacity="0.85">SECTOR</text>
+  <text x="350" y="178" font-family="monospace" font-size="22" fill="#c7a568" text-anchor="middle" font-weight="bold" letter-spacing="4" filter="url(#gatePanelGlow)">25</text>
+
+  <!-- Golden ground plane beyond gate -->
+  <polygon points="220,440 480,440 440,380 260,380" fill="#1a1008" opacity="0.5"/>
+
+  <!-- Floor glow -->
+  <ellipse cx="350" cy="430" rx="80" ry="15" fill="#c7a568" opacity="0.12"/>
+
+  <!-- Ceiling structure -->
+  <rect x="0" y="0" width="700" height="60" fill="#0d1a24"/>
+  <rect x="0" y="57" width="700" height="5" fill="#172632"/>
+
+  <!-- Gate frame / arch top -->
+  <rect x="215" y="55" width="270" height="30" rx="3" fill="#172632" stroke="#344550" stroke-width="2"/>
+  <rect x="220" y="60" width="260" height="20" rx="2" fill="#111c25" stroke="#344550" stroke-width="1"/>
+  <!-- Gate arch label -->
+  <text x="350" y="74" font-family="monospace" font-size="7" fill="#93a2aa" text-anchor="middle" letter-spacing="3" opacity="0.7">ПУНКТ ПРОПУСКА №25</text>
+
+  <!-- Gate side pillars / wall -->
+  <!-- Left pillar -->
+  <rect x="0" y="0" width="215" height="500" fill="#0d1a24"/>
+  <rect x="200" y="0" width="18" height="500" fill="#172632" stroke="#344550" stroke-width="1"/>
+
+  <!-- Right pillar -->
+  <rect x="485" y="0" width="215" height="500" fill="#0d1a24"/>
+  <rect x="482" y="0" width="18" height="500" fill="#172632" stroke="#344550" stroke-width="1"/>
+
+  <!-- Left pillar panels -->
+  <rect x="20" y="70" width="160" height="100" rx="2" fill="#111c25" stroke="#344550" stroke-width="1"/>
+  <rect x="26" y="76" width="148" height="88" rx="1" fill="#0d1a24"/>
+  <line x1="34" y1="92" x2="166" y2="92" stroke="#344550" stroke-width="1"/>
+  <line x1="34" y1="106" x2="145" y2="106" stroke="#344550" stroke-width="1" opacity="0.6"/>
+  <line x1="34" y1="120" x2="158" y2="120" stroke="#344550" stroke-width="1"/>
+  <line x1="34" y1="134" x2="130" y2="134" stroke="#344550" stroke-width="1" opacity="0.7"/>
+  <line x1="34" y1="148" x2="152" y2="148" stroke="#344550" stroke-width="1"/>
+  <text x="34" y="86" font-family="monospace" font-size="5.5" fill="#93a2aa" opacity="0.6">CTRL.PANEL // SECTOR-25</text>
+
+  <rect x="20" y="190" width="160" height="60" rx="2" fill="#111c25" stroke="#344550" stroke-width="1"/>
+  <!-- Status screen left -->
+  <rect x="26" y="196" width="148" height="48" rx="1" fill="#0d2535"/>
+  <text x="100" y="216" font-family="monospace" font-size="7" fill="#4f8065" text-anchor="middle">STATUS: LOCKED</text>
+  <text x="100" y="230" font-family="monospace" font-size="6" fill="#93a2aa" text-anchor="middle">AWAITING AUTH</text>
+  <circle cx="160" cy="200" r="4" fill="#a88042" class="blink-gate"/>
+
+  <!-- Right pillar panels -->
+  <rect x="520" y="70" width="160" height="100" rx="2" fill="#111c25" stroke="#344550" stroke-width="1"/>
+  <rect x="526" y="76" width="148" height="88" rx="1" fill="#0d1a24"/>
+  <line x1="534" y1="92" x2="666" y2="92" stroke="#344550" stroke-width="1"/>
+  <line x1="534" y1="106" x2="645" y2="106" stroke="#344550" stroke-width="1" opacity="0.6"/>
+  <line x1="534" y1="120" x2="658" y2="120" stroke="#344550" stroke-width="1"/>
+  <line x1="534" y1="134" x2="630" y2="134" stroke="#344550" stroke-width="1" opacity="0.7"/>
+  <line x1="534" y1="148" x2="652" y2="148" stroke="#344550" stroke-width="1"/>
+  <text x="534" y="86" font-family="monospace" font-size="5.5" fill="#93a2aa" opacity="0.6">CTRL.PANEL // SECTOR-25</text>
+
+  <rect x="520" y="190" width="160" height="60" rx="2" fill="#111c25" stroke="#344550" stroke-width="1"/>
+  <rect x="526" y="196" width="148" height="48" rx="1" fill="#0d2535"/>
+  <text x="600" y="216" font-family="monospace" font-size="7" fill="#4f8065" text-anchor="middle">STATUS: LOCKED</text>
+  <text x="600" y="230" font-family="monospace" font-size="6" fill="#93a2aa" text-anchor="middle">AWAITING AUTH</text>
+  <circle cx="530" cy="200" r="4" fill="#a88042" class="blink-gate-slow"/>
+
+  <!-- ====== LEFT GATE PANEL ====== -->
+  <g id="gate-left">
+    <!-- Gate panel body -->
+    <rect x="220" y="80" width="130" height="360" fill="url(#gatePanelLeft)" stroke="#344550" stroke-width="2"/>
+
+    <!-- Gate panel inner frame -->
+    <rect x="226" y="86" width="118" height="348" rx="1" fill="none" stroke="#2a4055" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+    <!-- Gate panel top section -->
+    <rect x="228" y="88" width="114" height="70" rx="1" fill="#111c25" stroke="#344550" stroke-width="0.8"/>
+    <!-- Horizontal ribs -->
+    <line x1="228" y1="108" x2="342" y2="108" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="128" x2="342" y2="128" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="148" x2="342" y2="148" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Gate panel middle section (with recessed panels) -->
+    <rect x="228" y="168" width="114" height="80" rx="1" fill="#172632" stroke="#344550" stroke-width="0.8"/>
+    <rect x="234" y="174" width="102" height="68" rx="1" fill="#111c25" stroke="#2a4055" stroke-width="0.8"/>
+    <!-- Recessed pattern lines -->
+    <line x1="234" y1="196" x2="336" y2="196" stroke="#344550" stroke-width="1"/>
+    <line x1="234" y1="216" x2="336" y2="216" stroke="#344550" stroke-width="1"/>
+    <line x1="234" y1="236" x2="336" y2="236" stroke="#344550" stroke-width="1"/>
+    <!-- Panel vertical divider -->
+    <line x1="285" y1="174" x2="285" y2="242" stroke="#344550" stroke-width="1"/>
+
+    <!-- Gate panel indicator light row -->
+    <rect x="228" y="258" width="114" height="20" rx="1" fill="#0d1a24" stroke="#344550" stroke-width="0.8"/>
+    <circle cx="242" cy="268" r="5" fill="#904d48" class="blink-gate"/>
+    <circle cx="258" cy="268" r="5" fill="#a88042" class="blink-gate-slow"/>
+    <circle cx="274" cy="268" r="5" fill="#344550"/>
+    <circle cx="290" cy="268" r="5" fill="#344550"/>
+    <circle cx="306" cy="268" r="5" fill="#344550"/>
+    <circle cx="322" cy="268" r="5" fill="#344550"/>
+    <circle cx="338" cy="268" r="5" fill="#344550"/>
+
+    <!-- Gate panel lower section -->
+    <rect x="228" y="288" width="114" height="90" rx="1" fill="#111c25" stroke="#344550" stroke-width="0.8"/>
+    <line x1="228" y1="308" x2="342" y2="308" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="328" x2="342" y2="328" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="348" x2="342" y2="348" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="368" x2="342" y2="368" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Gate handle/latch left side -->
+    <rect x="342" y="228" width="8" height="40" rx="3" fill="#172632" stroke="#344550" stroke-width="1"/>
+    <rect x="342" y="238" width="12" height="20" rx="2" fill="#2a4055" stroke="#344550" stroke-width="1"/>
+
+    <!-- Gate panel bottom reinforcement -->
+    <rect x="228" y="390" width="114" height="46" rx="1" fill="#172632" stroke="#344550" stroke-width="0.8"/>
+    <line x1="228" y1="408" x2="342" y2="408" stroke="#344550" stroke-width="1.5"/>
+    <line x1="228" y1="424" x2="342" y2="424" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Cold blue edge glow on gate right side (facing gap) -->
+    <rect x="345" y="80" width="5" height="360" fill="#1a3d55" opacity="0.3"/>
+  </g>
+
+  <!-- ====== RIGHT GATE PANEL ====== -->
+  <g id="gate-right">
+    <!-- Gate panel body -->
+    <rect x="350" y="80" width="130" height="360" fill="url(#gatePanelRight)" stroke="#344550" stroke-width="2"/>
+
+    <!-- Gate panel inner frame -->
+    <rect x="356" y="86" width="118" height="348" rx="1" fill="none" stroke="#2a4055" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+    <!-- Gate panel top section -->
+    <rect x="358" y="88" width="114" height="70" rx="1" fill="#111c25" stroke="#344550" stroke-width="0.8"/>
+    <line x1="358" y1="108" x2="472" y2="108" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="128" x2="472" y2="128" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="148" x2="472" y2="148" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Gate panel middle section -->
+    <rect x="358" y="168" width="114" height="80" rx="1" fill="#172632" stroke="#344550" stroke-width="0.8"/>
+    <rect x="364" y="174" width="102" height="68" rx="1" fill="#111c25" stroke="#2a4055" stroke-width="0.8"/>
+    <line x1="364" y1="196" x2="466" y2="196" stroke="#344550" stroke-width="1"/>
+    <line x1="364" y1="216" x2="466" y2="216" stroke="#344550" stroke-width="1"/>
+    <line x1="364" y1="236" x2="466" y2="236" stroke="#344550" stroke-width="1"/>
+    <line x1="415" y1="174" x2="415" y2="242" stroke="#344550" stroke-width="1"/>
+
+    <!-- Indicator lights row -->
+    <rect x="358" y="258" width="114" height="20" rx="1" fill="#0d1a24" stroke="#344550" stroke-width="0.8"/>
+    <circle cx="362" cy="268" r="5" fill="#344550"/>
+    <circle cx="378" cy="268" r="5" fill="#344550"/>
+    <circle cx="394" cy="268" r="5" fill="#344550"/>
+    <circle cx="410" cy="268" r="5" fill="#344550"/>
+    <circle cx="426" cy="268" r="5" fill="#344550"/>
+    <circle cx="442" cy="268" r="5" fill="#a88042" class="blink-gate"/>
+    <circle cx="458" cy="268" r="5" fill="#904d48" class="blink-gate-slow"/>
+
+    <!-- Gate panel lower section -->
+    <rect x="358" y="288" width="114" height="90" rx="1" fill="#111c25" stroke="#344550" stroke-width="0.8"/>
+    <line x1="358" y1="308" x2="472" y2="308" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="328" x2="472" y2="328" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="348" x2="472" y2="348" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="368" x2="472" y2="368" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Gate handle/latch right side -->
+    <rect x="350" y="228" width="8" height="40" rx="3" fill="#172632" stroke="#344550" stroke-width="1"/>
+    <rect x="346" y="238" width="12" height="20" rx="2" fill="#2a4055" stroke="#344550" stroke-width="1"/>
+
+    <!-- Gate panel bottom reinforcement -->
+    <rect x="358" y="390" width="114" height="46" rx="1" fill="#172632" stroke="#344550" stroke-width="0.8"/>
+    <line x1="358" y1="408" x2="472" y2="408" stroke="#344550" stroke-width="1.5"/>
+    <line x1="358" y1="424" x2="472" y2="424" stroke="#344550" stroke-width="1.5"/>
+
+    <!-- Cold blue edge glow on gate left side (facing gap) -->
+    <rect x="350" y="80" width="5" height="360" fill="#1a3d55" opacity="0.3"/>
+  </g>
+
+  <!-- Meeting seam between gate panels (center) -->
+  <line x1="350" y1="80" x2="350" y2="440" stroke="#0d1a24" stroke-width="3"/>
+  <line x1="350" y1="80" x2="350" y2="440" stroke="#1a3d55" stroke-width="1" opacity="0.6"/>
+
+  <!-- Gate floor track -->
+  <rect x="215" y="438" width="270" height="10" rx="2" fill="#172632" stroke="#344550" stroke-width="1.5"/>
+  <line x1="220" y1="443" x2="480" y2="443" stroke="#344550" stroke-width="1" opacity="0.5"/>
+  <rect x="215" y="445" width="270" height="6" rx="1" fill="#111c25" stroke="#344550" stroke-width="0.8"/>
+
+  <!-- Gate top frame (arch top) -->
+  <rect x="215" y="55" width="270" height="30" rx="3" fill="#172632" stroke="#344550" stroke-width="2"/>
+  <!-- Gate top light strip -->
+  <rect x="222" y="62" width="256" height="10" rx="1" fill="#1a3d55" opacity="0.6"/>
+  <rect x="222" y="62" width="256" height="10" rx="1" fill="none" stroke="#344550" stroke-width="0.5"/>
+
+  <!-- Ceiling panels above gate arch -->
+  <rect x="0" y="0" width="215" height="60" fill="#0d1a24"/>
+  <rect x="485" y="0" width="215" height="60" fill="#0d1a24"/>
+  <rect x="215" y="0" width="270" height="58" fill="#0d1a24"/>
+  <!-- Ceiling light strip row -->
+  <rect x="40" y="8" width="60" height="10" rx="1" fill="#1a3d55" opacity="0.6"/>
+  <rect x="130" y="8" width="60" height="10" rx="1" fill="#1a3d55" opacity="0.6"/>
+  <rect x="510" y="8" width="60" height="10" rx="1" fill="#1a3d55" opacity="0.6"/>
+  <rect x="600" y="8" width="60" height="10" rx="1" fill="#1a3d55" opacity="0.6"/>
+
+  <!-- Floor -->
+  <rect x="0" y="448" width="700" height="52" fill="#0b1117"/>
+  <line x1="0" y1="448" x2="700" y2="448" stroke="#172632" stroke-width="2"/>
+  <!-- Floor reflections from golden light -->
+  <ellipse cx="350" cy="460" rx="120" ry="12" fill="#c7a568" opacity="0.04"/>
+
+  <!-- Footer text -->
+  <text x="350" y="480" font-family="monospace" font-size="7" fill="#344550" text-anchor="middle" letter-spacing="4" opacity="0.7">SECTOR 25 // FINAL GATE // ПУНКТ ПРОПУСКА №25</text>
+</svg>
