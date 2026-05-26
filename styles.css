@@ -374,6 +374,7 @@ ul { list-style: none; }
 }
 @media (max-width: 640px) {
   .identity-layout { grid-template-columns: 1fr; }
+  .identity-passport { position: static; }
 }
 
 .identity-passport {
@@ -1212,12 +1213,22 @@ ul { list-style: none; }
 }
 
 /* ─── RESPONSIVE ───────────────────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  #progress-bar { padding: 8px 10px; gap: 2px; }
+  .progress-step { min-width: 44px; }
+  .progress-label { font-size: 7px; letter-spacing: 0; }
+  .progress-dot { width: 8px; height: 8px; }
+}
+
 @media (max-width: 360px) {
   body { font-size: 14px; }
   .panel { padding: 14px; }
   .paper-doc { padding: 16px; }
   .baggage-btns { flex-direction: column; }
   .stamp-slots { grid-template-columns: repeat(2, 1fr); }
+  #progress-bar { padding: 6px 8px; }
+  .progress-step { min-width: 36px; }
+  .progress-label { font-size: 6px; }
 }
 
 @media (min-width: 768px) {
