@@ -366,6 +366,7 @@ ul { list-style: none; }
 .identity-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
+  grid-template-areas: "passport form";
   gap: 24px;
   padding: 24px 20px;
   max-width: 900px;
@@ -373,13 +374,19 @@ ul { list-style: none; }
   align-items: start;
 }
 .identity-passport {
+  grid-area: passport;
   position: sticky;
   top: 70px;
 }
+.identity-form {
+  grid-area: form;
+}
 
 @media (max-width: 640px) {
-  .identity-layout { grid-template-columns: 1fr; }
-  .identity-passport { position: static; }
+  .identity-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "form" "passport";
+  }
 }
 .passport-img { width: 100%; border: 1px solid var(--border); }
 
@@ -394,8 +401,6 @@ ul { list-style: none; }
   line-height: 1.8;
 }
 .passport-details strong { color: var(--text-main); }
-
-.identity-form { }
 
 .identity-header {
   font-family: var(--font-mono);
