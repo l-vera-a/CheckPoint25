@@ -154,14 +154,14 @@
 
   <!-- Control screen on machine top -->
   <rect x="312" y="78" width="100" height="42" rx="2" fill="#0d2535"/>
-  <text x="362" y="94" font-family="monospace" font-size="6.5" fill="#4f8065" text-anchor="middle">SCANNING...</text>
+  <text x="362" y="94" font-family="monospace" font-size="6.5" fill="#5dba8e" text-anchor="middle">SCANNING...</text>
   <text x="362" y="106" font-family="monospace" font-size="6" fill="#93a2aa" text-anchor="middle">MODE: FULL SCAN</text>
-  <text x="362" y="116" font-family="monospace" font-size="6" fill="#a88042" text-anchor="middle">THREAT: NONE</text>
+  <text x="362" y="116" font-family="monospace" font-size="6" fill="#cf9e3a" text-anchor="middle">THREAT: NONE</text>
 
   <!-- Machine indicator lights (right side of top panel) -->
-  <circle cx="430" cy="88" r="5" fill="#4f8065" opacity="0.9"/>
-  <circle cx="430" cy="102" r="5" fill="#a88042" opacity="0.6"/>
-  <circle cx="446" cy="88" r="5" fill="#4f8065" opacity="0.7"/>
+  <circle cx="430" cy="88" r="5" fill="#5dba8e" opacity="0.9"/>
+  <circle cx="430" cy="102" r="5" fill="#cf9e3a" opacity="0.6"/>
+  <circle cx="446" cy="88" r="5" fill="#5dba8e" opacity="0.7"/>
   <circle cx="446" cy="102" r="5" fill="#344550"/>
 
   <!-- Machine label -->
@@ -199,41 +199,41 @@
     <!-- Small cylinder (memory/key) -->
     <rect x="62" y="52" width="20" height="10" rx="3" fill="#344550" stroke="#4a5f6a" stroke-width="1"/>
     <rect x="64" y="54" width="16" height="6" rx="1" fill="#1e3040"/>
-    <rect x="66" y="56" width="8" height="2" fill="#4f8065" opacity="0.7"/>
+    <rect x="66" y="56" width="8" height="2" fill="#5dba8e" opacity="0.7"/>
 
     <!-- Rolled paper/map -->
     <rect x="62" y="66" width="22" height="12" rx="5" fill="#e6dac3" opacity="0.5" stroke="#b8a882" stroke-width="0.8"/>
-    <line x1="66" y1="70" x2="80" y2="70" stroke="#a88042" stroke-width="0.6" opacity="0.6"/>
-    <line x1="66" y1="74" x2="78" y2="74" stroke="#a88042" stroke-width="0.6" opacity="0.6"/>
+    <line x1="66" y1="70" x2="80" y2="70" stroke="#cf9e3a" stroke-width="0.6" opacity="0.6"/>
+    <line x1="66" y1="74" x2="78" y2="74" stroke="#cf9e3a" stroke-width="0.6" opacity="0.6"/>
   </g>
 
   <!-- ==== SORTING ZONES (right side) ==== -->
   <!-- Zone 1: В БУДУЩЕЕ (Future) -->
-  <rect x="548" y="80" width="130" height="80" rx="3" fill="url(#futureZone)" stroke="#4f8065" stroke-width="1.5"/>
-  <rect x="552" y="84" width="122" height="72" rx="2" fill="none" stroke="#4f8065" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
-  <text x="613" y="108" font-family="monospace" font-size="7.5" fill="#4f8065" text-anchor="middle" letter-spacing="2" font-weight="bold">В БУДУЩЕЕ</text>
+  <rect x="548" y="80" width="130" height="80" rx="3" fill="url(#futureZone)" stroke="#5dba8e" stroke-width="1.5"/>
+  <rect x="552" y="84" width="122" height="72" rx="2" fill="none" stroke="#5dba8e" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="108" font-family="monospace" font-size="7.5" fill="#5dba8e" text-anchor="middle" letter-spacing="2" font-weight="bold">В БУДУЩЕЕ</text>
   <text x="613" y="122" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO THE FUTURE</text>
   <!-- Arrow indicator -->
-  <path d="M570,138 L656,138" stroke="#4f8065" stroke-width="1.5" marker-end="url(#arrowGreen)" opacity="0.7"/>
-  <polygon points="648,133 660,138 648,143" fill="#4f8065" opacity="0.7"/>
+  <path d="M570,138 L656,138" stroke="#5dba8e" stroke-width="1.5" marker-end="url(#arrowGreen)" opacity="0.7"/>
+  <polygon points="648,133 660,138 648,143" fill="#5dba8e" opacity="0.7"/>
   <!-- Status light -->
-  <circle cx="562" cy="94" r="4" fill="#4f8065" opacity="0.8"/>
+  <circle cx="562" cy="94" r="4" fill="#5dba8e" opacity="0.8"/>
 
   <!-- Zone 2: В ОПЫТ (Experience) -->
-  <rect x="548" y="178" width="130" height="80" rx="3" fill="url(#experienceZone)" stroke="#a88042" stroke-width="1.5"/>
-  <rect x="552" y="182" width="122" height="72" rx="2" fill="none" stroke="#a88042" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
-  <text x="613" y="206" font-family="monospace" font-size="7.5" fill="#a88042" text-anchor="middle" letter-spacing="2" font-weight="bold">В ОПЫТ</text>
+  <rect x="548" y="178" width="130" height="80" rx="3" fill="url(#experienceZone)" stroke="#cf9e3a" stroke-width="1.5"/>
+  <rect x="552" y="182" width="122" height="72" rx="2" fill="none" stroke="#cf9e3a" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="206" font-family="monospace" font-size="7.5" fill="#cf9e3a" text-anchor="middle" letter-spacing="2" font-weight="bold">В ОПЫТ</text>
   <text x="613" y="220" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO EXPERIENCE</text>
-  <polygon points="648,231 660,236 648,241" fill="#a88042" opacity="0.7"/>
-  <circle cx="562" cy="192" r="4" fill="#a88042" opacity="0.8"/>
+  <polygon points="648,231 660,236 648,241" fill="#cf9e3a" opacity="0.7"/>
+  <circle cx="562" cy="192" r="4" fill="#cf9e3a" opacity="0.8"/>
 
   <!-- Zone 3: В ПРОШЛОЕ (Past) -->
-  <rect x="548" y="276" width="130" height="80" rx="3" fill="url(#pastZone)" stroke="#904d48" stroke-width="1.5"/>
-  <rect x="552" y="280" width="122" height="72" rx="2" fill="none" stroke="#904d48" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
-  <text x="613" y="304" font-family="monospace" font-size="7.5" fill="#904d48" text-anchor="middle" letter-spacing="2" font-weight="bold">В ПРОШЛОЕ</text>
+  <rect x="548" y="276" width="130" height="80" rx="3" fill="url(#pastZone)" stroke="#d06060" stroke-width="1.5"/>
+  <rect x="552" y="280" width="122" height="72" rx="2" fill="none" stroke="#d06060" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="613" y="304" font-family="monospace" font-size="7.5" fill="#d06060" text-anchor="middle" letter-spacing="2" font-weight="bold">В ПРОШЛОЕ</text>
   <text x="613" y="318" font-family="monospace" font-size="6.5" fill="#93a2aa" text-anchor="middle" opacity="0.6">INTO THE PAST</text>
-  <polygon points="648,329 660,334 648,339" fill="#904d48" opacity="0.7"/>
-  <circle cx="562" cy="290" r="4" fill="#904d48" opacity="0.8"/>
+  <polygon points="648,329 660,334 648,339" fill="#d06060" opacity="0.7"/>
+  <circle cx="562" cy="290" r="4" fill="#d06060" opacity="0.8"/>
 
   <!-- Connecting line from conveyor to zones -->
   <line x1="530" y1="280" x2="548" y2="120" stroke="#344550" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
@@ -245,8 +245,8 @@
   <text x="30" y="215" font-family="monospace" font-size="7" fill="#344550" opacity="0.7">ЗОНА ДОСМОТРА БАГАЖА</text>
 
   <!-- Warning stripes on floor left -->
-  <rect x="0" y="310" width="30" height="8" fill="#a88042" opacity="0.2"/>
-  <line x1="0" y1="310" x2="30" y2="318" stroke="#a88042" stroke-width="2" opacity="0.3"/>
+  <rect x="0" y="310" width="30" height="8" fill="#cf9e3a" opacity="0.2"/>
+  <line x1="0" y1="310" x2="30" y2="318" stroke="#cf9e3a" stroke-width="2" opacity="0.3"/>
 
   <!-- Directional arrow on floor -->
   <polygon points="240,330 260,320 260,326 290,326 290,334 260,334 260,340" fill="#344550" opacity="0.5"/>
