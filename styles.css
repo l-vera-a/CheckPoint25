@@ -372,14 +372,14 @@ ul { list-style: none; }
   margin: 0 auto;
   align-items: start;
 }
-@media (max-width: 640px) {
-  .identity-layout { grid-template-columns: 1fr; }
-  .identity-passport { position: static; }
-}
-
 .identity-passport {
   position: sticky;
   top: 70px;
+}
+
+@media (max-width: 640px) {
+  .identity-layout { grid-template-columns: 1fr; }
+  .identity-passport { position: static; }
 }
 .passport-img { width: 100%; border: 1px solid var(--border); }
 
